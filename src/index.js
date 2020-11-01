@@ -143,10 +143,22 @@ const addDrinks = ({ drinks }) => {
   const drinkList = document.querySelector('.drinks-list');
 
   drinks.forEach((drink) => {
-    const drinkElement = Drink({ ...drink });
+    const drinkElement = Drink(drink);
 
     drinkList.appendChild(drinkElement);
   });
 };
 
-addDrinks({ drinks });
+// addDrinks({ drinks });
+
+// 9 BE
+
+const fetchDrinks = () => {
+  fetch('http://cafelora.kodim.cz/api/drinks')
+    .then((response) => response.json())
+    .then((data) => {
+      addDrinks({ drinks: data });
+    });
+};
+
+fetchDrinks();
