@@ -1,7 +1,7 @@
 import './index.html';
 import './style.css';
 
-// import Layer from './Layer';
+import Layer from './Layer';
 import Drink from './Drink';
 
 // 3
@@ -46,32 +46,32 @@ navigationHandlers();
 // orderHandler();
 
 // 5, 6
-// const addLayers = ({ layers }) => {
-//   const drinkInfoElement = document.querySelector('.drink__info');
+const addLayers = ({ layers }) => {
+  const drinkInfoElement = document.querySelector('.drink__info');
 
-//   let layersInnerHtmlString = '';
+  let layersInnerHtmlString = '';
 
-//   layers.forEach((layer) => {
-//     layersInnerHtmlString += Layer(layer);
-//   });
+  layers.forEach((layer) => {
+    layersInnerHtmlString += Layer(layer);
+  });
 
-//   drinkInfoElement.innerHTML += layersInnerHtmlString;
-// };
+  drinkInfoElement.innerHTML += layersInnerHtmlString;
+};
 
-// const layers = [
-//   {
-//     color: '#feeeca',
-//     label: 'mléčná pěna',
-//   },
-//   {
-//     color: '#fed7b0',
-//     label: 'teplé mléko',
-//   },
-//   {
-//     color: '#613916',
-//     label: 'espresso',
-//   },
-// ];
+const layers = [
+  {
+    color: '#feeeca',
+    label: 'mléčná pěna',
+  },
+  {
+    color: '#fed7b0',
+    label: 'teplé mléko',
+  },
+  {
+    color: '#613916',
+    label: 'espresso',
+  },
+];
 
 // addLayers({ layers });
 
@@ -99,4 +99,54 @@ const drink = {
   ],
 };
 
-addDrink({ drink });
+// addDrink({ drink });
+
+// 8
+const drinks = [
+  {
+    id: 'cappuccino',
+    name: 'Cappuccino',
+    ordered: false,
+    layers: [
+      {
+        color: '#feeeca',
+        label: 'mléčná pěna',
+      },
+      {
+        color: '#fed7b0',
+        label: 'teplé mléko',
+      },
+      {
+        color: '#613916',
+        label: 'espresso',
+      },
+    ],
+  },
+  {
+    id: 'romano',
+    name: 'Romano',
+    ordered: false,
+    layers: [
+      {
+        color: '#fbdf5b',
+        label: 'citrón',
+      },
+      {
+        color: '#613916',
+        label: 'espresso',
+      },
+    ],
+  },
+];
+
+const addDrinks = ({ drinks }) => {
+  const drinkList = document.querySelector('.drinks-list');
+
+  drinks.forEach((drink) => {
+    const drinkElement = Drink({ ...drink });
+
+    drinkList.appendChild(drinkElement);
+  });
+};
+
+addDrinks({ drinks });

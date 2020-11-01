@@ -3,11 +3,6 @@ import './style.css';
 import Layer from '../Layer';
 
 const Drink = ({ id, name, ordered, layers }) => {
-  const orderBtn = document.createElement('button');
-  orderBtn.className = 'order-btn';
-  orderBtn.textContent = 'Objednat';
-  orderBtnHandler(orderBtn, ordered);
-
   const imgElement = document.createElement('img');
   imgElement.src = `/assets/cups/${id}.png`;
 
@@ -23,6 +18,11 @@ const Drink = ({ id, name, ordered, layers }) => {
   drinkProductElement.appendChild(drinkInfoElement);
 
   const drinkElement = divConstructor('drink', drinkProductElement);
+
+  const orderBtn = document.createElement('button');
+  orderBtn.className = 'order-btn';
+  orderBtn.textContent = 'Objednat';
+  orderBtnHandler(orderBtn, drinkCupElement, ordered);
 
   const drinkControlsElement = divConstructor('drink__controls', orderBtn);
 
@@ -41,10 +41,8 @@ const getLayersInnerHtml = ({ layers }) => {
   return layersInnerHtmlString;
 };
 
-const orderBtnHandler = (orderBtn, ordered) => {
+const orderBtnHandler = (orderBtn, drinkCupElement, ordered) => {
   orderBtn.addEventListener('click', () => {
-    const drinkCupElement = document.querySelector('.drink__cup');
-
     drinkCupElement.classList.toggle('drink__cup--selected');
 
     if (ordered) {
