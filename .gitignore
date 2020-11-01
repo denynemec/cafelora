@@ -36,6 +36,7 @@ node_modules/
 
 # Generate output
 dist
+test/
 
 # VS Code settings
 .vscode
