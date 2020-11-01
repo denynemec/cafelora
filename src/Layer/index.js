@@ -1,3 +1,5 @@
+import './style.css';
+
 const Layer = ({ color, label }) => `
 <div class="layer">
     <div
