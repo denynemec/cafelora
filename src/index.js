@@ -24,24 +24,24 @@ const navigationHandlers = () => {
 navigationHandlers();
 
 // 4
-// const orderHandler = () => {
-//   const orderBtn = document.querySelector('.order-btn');
-//   let ordered = false;
+const orderHandler = () => {
+  const orderBtn = document.querySelector('.order-btn');
+  let ordered = false;
 
-//   orderBtn.addEventListener('click', () => {
-//     const drinkCupElement = document.querySelector('.drink__cup');
+  orderBtn.addEventListener('click', () => {
+    const drinkCupElement = document.querySelector('.drink__cup');
 
-//     drinkCupElement.classList.toggle('drink__cup--selected');
+    drinkCupElement.classList.toggle('drink__cup--selected');
 
-//     if (ordered) {
-//       orderBtn.textContent = 'Objednat';
-//     } else {
-//       orderBtn.textContent = 'Zrušit';
-//     }
+    if (ordered) {
+      orderBtn.textContent = 'Objednat';
+    } else {
+      orderBtn.textContent = 'Zrušit';
+    }
 
-//     ordered = !ordered;
-//   });
-// };
+    ordered = !ordered;
+  });
+};
 
 // orderHandler();
 
